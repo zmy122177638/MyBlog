@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.52anles.com/"/>
-  <updated>2018-05-23T08:56:53.906Z</updated>
+  <updated>2018-05-23T09:01:40.340Z</updated>
   <id>https://www.52anles.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://www.52anles.com/2018/05/22/Article1/"/>
     <id>https://www.52anles.com/2018/05/22/Article1/</id>
     <published>2018-05-22T09:51:05.000Z</published>
-    <updated>2018-05-23T08:56:53.906Z</updated>
+    <updated>2018-05-23T09:01:40.340Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="简单几步实现Git提交代码"><a href="#简单几步实现Git提交代码" class="headerlink" title="简单几步实现Git提交代码"></a>简单几步实现Git提交代码</h2><ul><li>$ git config –global user.name “Anles” </li><li>$ git config –global user.email “<a href="mailto:122177638@qq.com" target="_blank" rel="noopener">122177638@qq.com</a>“ </li><li>$ ssh-keygen -t rsa -C “<a href="mailto:122177638@qq.com" target="_blank" rel="noopener">122177638@qq.com</a>“ —生成秘钥</li><li>打开id_rsa.pub密钥文件复制</li><li>登录github,在setting内设置新的SSH密钥并建立github仓库</li><li>$ git init  —初始化</li><li>$ git add . —将选择的文件添加到仓库</li><li>$ git commit -m “提交文件” —本次提交注释</li><li>$ git remote add origin “github仓库地址” —添加远程仓库</li><li>$ git push origin master  —上传本地代码</li></ul><h2 id="常用git命令大全"><a href="#常用git命令大全" class="headerlink" title="常用git命令大全"></a>常用git命令大全</h2><ul><li>$ ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a> —验证有没有连接远程服务器</li><li>$ git pull -rebase origin master //合并代码</li><li></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="简单几步实现Git提交代码"><a href="#简单几步实现Git提交代码" class="headerlink" title="简单几步实现Git提交代码"></a>简单几步实现Git提交代码</h2><ul><li>$ git config –global user.name “Anles” </li><li>$ git config –global user.email “<a href="mailto:122177638@qq.com" target="_blank" rel="noopener">122177638@qq.com</a>“ </li><li>$ ssh-keygen -t rsa -C “<a href="mailto:122177638@qq.com" target="_blank" rel="noopener">122177638@qq.com</a>“ —生成秘钥</li><li>打开id_rsa.pub密钥文件复制</li><li>登录github,在setting内设置新的SSH密钥并建立github仓库</li><li>$ git init  —初始化</li><li>$ git add . —将选择的文件添加到仓库</li><li>$ git commit -m “提交文件” —本次提交注释</li><li>$ git remote add origin “github仓库地址” —添加远程仓库</li><li>$ git push origin master  —上传本地代码</li></ul><h2 id="常用git命令大全"><a href="#常用git命令大全" class="headerlink" title="常用git命令大全"></a>常用git命令大全</h2><ul><li>$ ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a> —验证有没有连接远程服务器</li><li><p>$ git pull -rebase origin master //合并代码</p><img src="/2018/05/22/Article1/git_help.png" title="git命令"></li></ul><p><img src="git_help.png" title="git命令"></p>]]></content>
     
     <summary type="html">
     
