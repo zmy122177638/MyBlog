@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.52anles.com/"/>
-  <updated>2018-05-23T04:57:25.159Z</updated>
+  <updated>2018-05-23T07:40:13.314Z</updated>
   <id>https://www.52anles.com/</id>
   
   <author>
@@ -21,26 +21,24 @@
     <link href="https://www.52anles.com/2018/05/22/blog1/"/>
     <id>https://www.52anles.com/2018/05/22/blog1/</id>
     <published>2018-05-22T09:51:05.000Z</published>
-    <updated>2018-05-23T04:57:25.159Z</updated>
+    <updated>2018-05-23T07:40:13.314Z</updated>
     
-    <content type="html"><![CDATA[<p>今天，我的博客总于诞生了，成功的避开了520和521。我能说什么，我只能说，好好码代码改变世界吧。<br>没有什么是不能码代码解决的，如果有，那就是脱发。幸好我没有。</p><hr><blockquote><h2 id="开始学习MarkdowPad语法-http-www-markdown-cn"><a href="#开始学习MarkdowPad语法-http-www-markdown-cn" class="headerlink" title="开始学习MarkdowPad语法: http://www.markdown.cn/"></a>开始学习MarkdowPad语法: <a href="http://www.markdown.cn/" target="_blank" rel="noopener">http://www.markdown.cn/</a></h2></blockquote><hr><p></p><p>我使用了一个P标签</p><p></p><p></p><p>我又使用了一个，P标签的特性一览无余有没有。</p><p></p><p><table><br>    <tr><br>        <th>HTML</th><br>        <th>CSS</th><br>        <th>JS</th><br>    </tr><br>    <tr><br>        <td>布局</td><br>        <td>构思</td><br>        <td>逻辑</td><br>    </tr><br></table></p><p><div>我使用了Div</div></p><p><div>我继续使用，哈</div></p><p><pre>我使用了pre标签</pre></p><p><pre>不换行的pre标签，不换行的pre标签，不换行的pre标签，不换行的pre标签，不换行的pre标签，不换行的pre标签，不换行的pre标签，不换行的pre标签，不换行的pre标签</pre></p><p><pre><br>    <ul><br>        <li>Bird</li><br>        <li>McHale</li><br>        <li>Parish</li><br>    </ul><br></pre></p><p><ul><br>    <li>Bird</li><br>    <li>McHale</li><br>    <li>Parish</li><br></ul></p><ol><br>    <li>Bird</li><br>    <li>McHale</li><br>    <li>Parish</li><br></ol><blockquote><p> 独自闯荡江湖</p><blockquote><p>舍我其谁</p></blockquote></blockquote><hr><h1 id="h1"><a href="#h1" class="headerlink" title="h1"></a>h1</h1><h1 id="h2"><a href="#h2" class="headerlink" title="h2"></a>h2</h1><h3 id="h3"><a href="#h3" class="headerlink" title="h3"></a>h3</h3><h4 id="h4"><a href="#h4" class="headerlink" title="h4"></a>h4</h4><h5 id="h5"><a href="#h5" class="headerlink" title="h5"></a>h5</h5><h6 id="h6"><a href="#h6" class="headerlink" title="h6"></a>h6</h6><p><a href="www.baidu.com" title="点我百度">百度一下</a><br><em>斜体</em></p><p><strong>粗体</strong></p><p><code>&lt;script&gt;&lt;script&gt;</code></p><pre><code>原来Html标签这么流弊，都可以用来写文章了。</code></pre>]]></content>
+    <content type="html"><![CDATA[<p>今天，我的博客总于诞生了，成功的避开了520和521。我能说什么，我只能说，好好码代码改变世界吧。<br>没有什么是不能码代码解决的，如果有，那就是脱发。瞧我一头乌黑亮丽的头发，就知道我没有。</p><hr><blockquote><h2 id="开始学习MarkdowPad语法-http-www-markdown-cn"><a href="#开始学习MarkdowPad语法-http-www-markdown-cn" class="headerlink" title="开始学习MarkdowPad语法: http://www.markdown.cn/"></a>开始学习MarkdowPad语法: <a href="http://www.markdown.cn/" target="_blank" rel="noopener">http://www.markdown.cn/</a></h2></blockquote><hr><p></p><p>我使用了一个P标签</p><p></p><p></p><p>我又使用了一个，P标签的特性一览无余有没有。</p><p></p><p><table><br>    <tr><br>        <th>HTML</th><br>        <th>CSS</th><br>        <th>JS</th><br>    </tr><br>    <tr><br>        <td>布局</td><br>        <td>构思</td><br>        <td>逻辑</td><br>    </tr><br></table></p><p><div>我使用了Div</div></p><p><div>我继续使用，哈</div></p><p><pre>我使用了pre标签</pre></p><p><pre>不换行的pre标签，不换行的pre标签，不换行的pre标签，不换行的pre标签，不换行的pre标签，不换行的pre标签，不换行的pre标签，不换行的pre标签，不换行的pre标签</pre></p><p><pre><br>    <ul><br>        <li>Bird</li><br>        <li>McHale</li><br>        <li>Parish</li><br>    </ul><br></pre></p><p><ul><br>    <li>Bird</li><br>    <li>McHale</li><br>    <li>Parish</li><br></ul></p><ol><br>    <li>Bird</li><br>    <li>McHale</li><br>    <li>Parish</li><br></ol><blockquote><p> 独自闯荡江湖</p><blockquote><p>舍我其谁</p></blockquote></blockquote><hr><p><a href="www.baidu.com" title="点我百度">百度一下</a><br><em>斜体</em></p><p><strong>粗体</strong></p><p><code>&lt;script&gt;&lt;script&gt;</code></p><pre><code>原来Html标签这么流弊，都可以用来写文章了。</code></pre>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;今天，我的博客总于诞生了，成功的避开了520和521。我能说什么，我只能说，好好码代码改变世界吧。&lt;br&gt;没有什么是不能码代码解决的，如果有，那就是脱发。幸好我没有。&lt;/p&gt;
+        &lt;p&gt;今天，我的博客总于诞生了，成功的避开了520和521。我能说什么，我只能说，好好码代码改变世界吧。&lt;br&gt;没有什么是不能码代码解决的，如果有，那就是脱发。瞧我一头乌黑亮丽的头发，就知道我没有。&lt;/p&gt;
 &lt;hr&gt;
 &lt;blockquote&gt;
-&lt;h2 id=&quot;开始学习MarkdowPad语法-http-w
+&lt;h2 id=&quot;开始学习Markdo
       
     
     </summary>
     
       <category term="MarkdowPad" scheme="https://www.52anles.com/categories/MarkdowPad/"/>
     
-    
-      <category term="study" scheme="https://www.52anles.com/tags/study/"/>
     
       <category term="博客诞生了" scheme="https://www.52anles.com/tags/%E5%8D%9A%E5%AE%A2%E8%AF%9E%E7%94%9F%E4%BA%86/"/>
     
