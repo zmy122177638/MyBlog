@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.52anles.com/"/>
-  <updated>2018-05-23T09:56:02.723Z</updated>
+  <updated>2018-05-23T10:16:09.561Z</updated>
   <id>https://www.52anles.com/</id>
   
   <author>
@@ -21,15 +21,15 @@
     <link href="https://www.52anles.com/2018/05/23/Ariticle2/"/>
     <id>https://www.52anles.com/2018/05/23/Ariticle2/</id>
     <published>2018-05-23T09:04:42.000Z</published>
-    <updated>2018-05-23T09:56:02.723Z</updated>
+    <updated>2018-05-23T10:16:09.561Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>在很多时候，我们在写弹窗的时候都会遇到一个事情，那就是手指滚动会穿透导致页面中的滚动条会跟随手指滚动，这个问题可能很多产品可以接受，万一你弹窗也有滚动条呢，这样就会导致弹窗的滚动条会和页面中的滚动条起冲突，这样的用户体验效果极差。我也是有过经历，并且踩过坑才想着留下脚印的。</p><h2 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h2><ul><li>利用body的overflow-y，通过JS动态设定hidden。</li><li><p>通过JS获取scrollTop值，利用window.scrollTo()方法</p><pre><code>//第一种document.querySelector(&apos;.fiex_bt&apos;).addEventListener(&apos;click&apos;,function(){    //弹窗开    document.body.style.overflow= &apos;hidden&apos;;})document.querySelector(&apos;.public_pp_close&apos;).addEventListener(&apos;click&apos;,function(){    //弹窗关    document.body.style.overflow= &apos;&apos;;})//第二种var scrollSwitch = {    s_top:0,    scrollBled(){        var scrollTop = window.pageYOffset          || document.documentElement.scrollTop          || document.body.scrollTop          || 0;        this.s_top=scrollTop;//保存当前滚动条位置        document.body.style.top=-1*scrollTop+&quot;px&quot;;        document.body.style.position=&apos;fixed&apos;;    },    scrollOpen(){        document.body.style.overflow=&apos;&apos;;        document.body.style.position=null;        document.body.style.top=null;        window.scrollTo(0,this.s_top);    }}</code></pre></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>在很多时候，我们在写弹窗的时候都会遇到一个事情，那就是手指滚动会穿透导致页面中的滚动条会跟随手指滚动，刚开始感觉问题不大，但是万一你弹窗也有滚动条呢，这样就会导致弹窗的滚动条会和页面中的滚动条起冲突，这样的用户体验效果极差。我也是有过经历，并且踩过坑才想着留下脚印的。</p><h2 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h2><ul><li>利用body的overflow-y，通过JS动态设定hidden。</li><li><p>通过JS获取scrollTop值，利用window.scrollTo()方法</p><pre><code>//第一种document.querySelector(&apos;.fiex_bt&apos;).addEventListener(&apos;click&apos;,function(){    //弹窗开    document.body.style.overflow= &apos;hidden&apos;;})document.querySelector(&apos;.public_pp_close&apos;).addEventListener(&apos;click&apos;,function(){    //弹窗关    document.body.style.overflow= &apos;&apos;;})//第二种var scrollSwitch = {    s_top:0,    scrollBled(){        var scrollTop = window.pageYOffset          || document.documentElement.scrollTop          || document.body.scrollTop          || 0;        this.s_top=scrollTop;//保存当前滚动条位置        document.body.style.top=-1*scrollTop+&quot;px&quot;;        document.body.style.position=&apos;fixed&apos;;    },    scrollOpen(){        document.body.style.overflow=&apos;&apos;;        document.body.style.position=null;        document.body.style.top=null;        window.scrollTo(0,this.s_top);    }}</code></pre></li></ul>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;原因&quot;&gt;&lt;a href=&quot;#原因&quot; class=&quot;headerlink&quot; title=&quot;原因&quot;&gt;&lt;/a&gt;原因&lt;/h2&gt;&lt;p&gt;在很多时候，我们在写弹窗的时候都会遇到一个事情，那就是手指滚动会穿透导致页面中的滚动条会跟随手指滚动，这个问题可能很多产品可以接受，万一你弹
+        &lt;h2 id=&quot;原因&quot;&gt;&lt;a href=&quot;#原因&quot; class=&quot;headerlink&quot; title=&quot;原因&quot;&gt;&lt;/a&gt;原因&lt;/h2&gt;&lt;p&gt;在很多时候，我们在写弹窗的时候都会遇到一个事情，那就是手指滚动会穿透导致页面中的滚动条会跟随手指滚动，刚开始感觉问题不大，但是万一你弹窗也有
       
     
     </summary>
