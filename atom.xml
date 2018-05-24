@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.52anles.com/"/>
-  <updated>2018-05-23T10:23:32.348Z</updated>
+  <updated>2018-05-24T07:49:02.702Z</updated>
   <id>https://www.52anles.com/</id>
   
   <author>
@@ -17,36 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>移动端H5阻止弹窗穿透滚动</title>
-    <link href="https://www.52anles.com/2018/05/23/Ariticle2/"/>
-    <id>https://www.52anles.com/2018/05/23/Ariticle2/</id>
-    <published>2018-05-23T09:04:42.000Z</published>
-    <updated>2018-05-23T10:23:32.348Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>在很多时候，我们在写弹窗的时候都会遇到一个事情，那就是手指滚动会穿透导致页面中的滚动条会跟随手指滚动，刚开始感觉问题不大，但是万一你弹窗也有滚动条呢，这样就会导致弹窗的滚动条会和页面中的滚动条起冲突，这样的用户体验效果极差。我也是有过经历，并且踩过坑才想着留下脚印的。</p><h2 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h2><ul><li>利用body的overflow-y，通过JS动态设定hidden。</li><li>通过JS获取scrollTop值，利用window.scrollTo()方法<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//第一种</span></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'.fiex_bt'</span>).addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//弹窗开</span></span><br><span class="line">    <span class="built_in">document</span>.body.style.overflow= <span class="string">'hidden'</span>;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'.public_pp_close'</span>).addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//弹窗关</span></span><br><span class="line">    <span class="built_in">document</span>.body.style.overflow= <span class="string">''</span>;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//第二种</span></span><br><span class="line"><span class="keyword">var</span> scrollSwitch = &#123;</span><br><span class="line">    s_top:<span class="number">0</span>,</span><br><span class="line">    scrollBled()&#123;</span><br><span class="line">        <span class="keyword">var</span> scrollTop = <span class="built_in">window</span>.pageYOffset  </span><br><span class="line">        || <span class="built_in">document</span>.documentElement.scrollTop  </span><br><span class="line">        || <span class="built_in">document</span>.body.scrollTop  </span><br><span class="line">        || <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">this</span>.s_top=scrollTop;<span class="comment">//保存当前滚动条位置</span></span><br><span class="line">        <span class="built_in">document</span>.body.style.top=<span class="number">-1</span>*scrollTop+<span class="string">"px"</span>;</span><br><span class="line">        <span class="built_in">document</span>.body.style.position=<span class="string">'fixed'</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    scrollOpen()&#123;</span><br><span class="line">        <span class="built_in">document</span>.body.style.overflow=<span class="string">''</span>;</span><br><span class="line">        <span class="built_in">document</span>.body.style.position=<span class="literal">null</span>;</span><br><span class="line">        <span class="built_in">document</span>.body.style.top=<span class="literal">null</span>;</span><br><span class="line">        <span class="built_in">window</span>.scrollTo(<span class="number">0</span>,<span class="keyword">this</span>.s_top);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;原因&quot;&gt;&lt;a href=&quot;#原因&quot; class=&quot;headerlink&quot; title=&quot;原因&quot;&gt;&lt;/a&gt;原因&lt;/h2&gt;&lt;p&gt;在很多时候，我们在写弹窗的时候都会遇到一个事情，那就是手指滚动会穿透导致页面中的滚动条会跟随手指滚动，刚开始感觉问题不大，但是万一你弹窗也有
-      
-    
-    </summary>
-    
-      <category term="Javascript" scheme="https://www.52anles.com/categories/Javascript/"/>
-    
-    
-      <category term="Javascript" scheme="https://www.52anles.com/tags/Javascript/"/>
-    
-  </entry>
-  
-  <entry>
     <title>通过window.history保存页面浏览记录</title>
-    <link href="https://www.52anles.com/2018/05/22/Article3/"/>
-    <id>https://www.52anles.com/2018/05/22/Article3/</id>
-    <published>2018-05-22T14:51:05.000Z</published>
-    <updated>2018-05-24T07:38:54.680Z</updated>
+    <link href="https://www.52anles.com/2018/05/24/Article3/"/>
+    <id>https://www.52anles.com/2018/05/24/Article3/</id>
+    <published>2018-05-24T14:51:05.000Z</published>
+    <updated>2018-05-24T07:49:02.702Z</updated>
     
     <content type="html"><![CDATA[<h2 id="window-history-back"><a href="#window-history-back" class="headerlink" title="window.history.back()"></a>window.history.back()</h2><p><code>window.history.back()</code>   上一个页面</p><h2 id="window-history-forward"><a href="#window-history-forward" class="headerlink" title="window.history.forward()"></a>window.history.forward()</h2><p><code>window.history.forward()</code> 下一个页面</p><h2 id="window-history-go"><a href="#window-history-go" class="headerlink" title="window.history.go()"></a>window.history.go()</h2><blockquote><p><code>window.history.go(-1)</code>与<code>window.history.back()</code>同理  上一个页面</p></blockquote><blockquote><p><code>window.history.go(1)</code> 与 <code>window.history.forward()</code>同理 下一个页面</p></blockquote><blockquote><p><code>window.history.go(0)</code> 相当于刷新页面</p></blockquote><h2 id="window-history-pushState-和-window-history-replaceState"><a href="#window-history-pushState-和-window-history-replaceState" class="headerlink" title="window.history.pushState()和 window.history.replaceState()"></a>window.history.pushState()和 window.history.replaceState()</h2><blockquote><p>window.history.pushState()  添加记录<br>window.history.replaceState() 修改记录<br>window.onpopState()  监听</p></blockquote><p>在使用这个Api的时候我们还是习惯性的做一下兼容，毕竟不是每个鸡蛋都一样大，下面代码可以判断当前浏览器是否支持History API。如果不支持请alert(‘请您更换浏览器’)，哈哈！~ 可以考虑下Polyfill库History.js。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!!(<span class="built_in">window</span>.history &amp;&amp; history.pushState))&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 支持History API</span></span><br><span class="line"></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 不支持</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>很多时候我们在浏览的时候，在遇到选择项选择错误，都会下意识的点击回退，在没有保存页面浏览记录的情况下回退，会直接跳转页面执行<code>window.history.back()</code>,返回上一页，这不是我们想要的结果，我们只是要回退一个步骤仅此而已，不需要刷新页面。这个时候我们就需要利用<code>window.history.pushState()</code>来保存用户操作的步骤，再通过<code>window.onpopstate</code>事件来监听并取出保存的记录，重新渲染页面。举个栗子</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'.Btn'</span>).onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">   <span class="keyword">var</span> randomNum = <span class="built_in">Math</span>.floor( <span class="built_in">Math</span>.random()*<span class="number">20</span>+<span class="number">1</span>);</span><br><span class="line">   <span class="keyword">var</span> Udata = &#123;<span class="attr">num</span>:randomNum&#125;; <span class="comment">//保存的数据</span></span><br><span class="line">   <span class="built_in">document</span>.querySelector(<span class="string">'.num'</span>).innerHTML = randomNum;</span><br><span class="line">   <span class="comment">//开始记录 Udata.num 显示在url的后缀名。</span></span><br><span class="line">   <span class="built_in">window</span>.history.pushState(Udata,<span class="string">'页面标题'</span>,Udata.num); </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">window</span>.onpopstate = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line"><span class="comment">//监听事件</span></span><br><span class="line">   <span class="built_in">console</span>.log(e.state) <span class="comment">//取出保存的数据、</span></span><br><span class="line"><span class="comment">//将取出的数据重新渲染</span></span><br><span class="line">   <span class="built_in">document</span>.querySelector(<span class="string">'.num'</span>).innerHTML = e.state.num;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -65,6 +40,31 @@
       <category term="html5" scheme="https://www.52anles.com/tags/html5/"/>
     
       <category term="javascript" scheme="https://www.52anles.com/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>移动端H5阻止弹窗穿透滚动</title>
+    <link href="https://www.52anles.com/2018/05/23/Ariticle2/"/>
+    <id>https://www.52anles.com/2018/05/23/Ariticle2/</id>
+    <published>2018-05-23T09:04:42.000Z</published>
+    <updated>2018-05-24T07:48:07.617Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>在很多时候，我们在写弹窗的时候都会遇到一个事情，那就是手指滚动会穿透导致页面中的滚动条会跟随手指滚动，刚开始感觉问题不大，但是万一你弹窗也有滚动条呢，这样就会导致弹窗的滚动条会和页面中的滚动条起冲突，这样的用户体验效果极差。我也是有过经历，并且踩过坑才想着留下脚印的。</p><h2 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h2><ul><li>利用body的overflow-y，通过JS动态设定hidden。</li><li>通过JS获取scrollTop值，利用window.scrollTo()方法</li></ul> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//第一种</span></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'.fiex_bt'</span>).addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//弹窗开</span></span><br><span class="line">    <span class="built_in">document</span>.body.style.overflow= <span class="string">'hidden'</span>;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'.public_pp_close'</span>).addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//弹窗关</span></span><br><span class="line">    <span class="built_in">document</span>.body.style.overflow= <span class="string">''</span>;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//第二种</span></span><br><span class="line"><span class="keyword">var</span> scrollSwitch = &#123;</span><br><span class="line">    s_top:<span class="number">0</span>,</span><br><span class="line">    scrollBled()&#123;</span><br><span class="line">        <span class="keyword">var</span> scrollTop = <span class="built_in">window</span>.pageYOffset  </span><br><span class="line">        || <span class="built_in">document</span>.documentElement.scrollTop  </span><br><span class="line">        || <span class="built_in">document</span>.body.scrollTop  </span><br><span class="line">        || <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">this</span>.s_top=scrollTop;<span class="comment">//保存当前滚动条位置</span></span><br><span class="line">        <span class="built_in">document</span>.body.style.top=<span class="number">-1</span>*scrollTop+<span class="string">"px"</span>;</span><br><span class="line">        <span class="built_in">document</span>.body.style.position=<span class="string">'fixed'</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    scrollOpen()&#123;</span><br><span class="line">        <span class="built_in">document</span>.body.style.overflow=<span class="string">''</span>;</span><br><span class="line">        <span class="built_in">document</span>.body.style.position=<span class="literal">null</span>;</span><br><span class="line">        <span class="built_in">document</span>.body.style.top=<span class="literal">null</span>;</span><br><span class="line">        <span class="built_in">window</span>.scrollTo(<span class="number">0</span>,<span class="keyword">this</span>.s_top);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;原因&quot;&gt;&lt;a href=&quot;#原因&quot; class=&quot;headerlink&quot; title=&quot;原因&quot;&gt;&lt;/a&gt;原因&lt;/h2&gt;&lt;p&gt;在很多时候，我们在写弹窗的时候都会遇到一个事情，那就是手指滚动会穿透导致页面中的滚动条会跟随手指滚动，刚开始感觉问题不大，但是万一你弹窗也有
+      
+    
+    </summary>
+    
+      <category term="Javascript" scheme="https://www.52anles.com/categories/Javascript/"/>
+    
+    
+      <category term="Javascript" scheme="https://www.52anles.com/tags/Javascript/"/>
     
   </entry>
   
