@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.52anles.com/"/>
-  <updated>2018-05-24T07:49:02.702Z</updated>
+  <updated>2018-05-28T11:56:49.066Z</updated>
   <id>https://www.52anles.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>提示弹窗和手机验证倒计时</title>
+    <link href="https://www.52anles.com/2018/05/28/Aritcle4/"/>
+    <id>https://www.52anles.com/2018/05/28/Aritcle4/</id>
+    <published>2018-05-28T11:51:00.000Z</published>
+    <updated>2018-05-28T11:56:49.066Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="自写小提示"><a href="#自写小提示" class="headerlink" title="自写小提示"></a>自写小提示</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//提示</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">point</span>(<span class="params">content</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</span><br><span class="line">    div.className = <span class="string">"point"</span>;</span><br><span class="line">    div.style.cssText = <span class="string">"width:100%;height:100%;position: fixed;top:0;left:0;z-index: 99;"</span></span><br><span class="line">    div.innerHTML = <span class="string">`</span></span><br><span class="line"><span class="string">        &lt;div class="wrap" style="position: absolute;top:50%;font-size:14px;left:50%;transform: translate(-50%,-50%);-webkit-transform: translate(-50%,-50%);</span></span><br><span class="line"><span class="string">        -ms-transform: translate(-50%,-50%);-moz-transform: translate(-50%,-50%);-o-transform: translate(-50%,-50%);padding:10px;background-color:rgba(0, 0, 0, 0.7);</span></span><br><span class="line"><span class="string">        color:#ffffff; border-radius: 5px;"&gt;</span></span><br><span class="line"><span class="string">            <span class="subst">$&#123;content&#125;</span></span></span><br><span class="line"><span class="string">        &lt;/div&gt;</span></span><br><span class="line"><span class="string">    `</span>;</span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(div);</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">document</span>.body.removeChild(div)</span><br><span class="line">    &#125;,<span class="number">1500</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="验证倒计时"><a href="#验证倒计时" class="headerlink" title="验证倒计时"></a>验证倒计时</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 计算</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">timeComputed</span>(<span class="params">num,_node</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> timeout;</span><br><span class="line">    <span class="keyword">if</span>(num &gt; <span class="number">0</span>)&#123;</span><br><span class="line">        num--;</span><br><span class="line">        _node.innerHTML = num + <span class="string">'秒'</span>;</span><br><span class="line">        timeout = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            timeComputed(num,_node);</span><br><span class="line">        &#125;, <span class="number">1000</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        _node.style.backgroundColor= <span class="string">"#dc4c55"</span>;</span><br><span class="line">        _node.innerHTML= <span class="string">"发送验证码"</span>;</span><br><span class="line">        _node.setAttribute(<span class="string">'data-bled'</span>,<span class="string">"liubi"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;自写小提示&quot;&gt;&lt;a href=&quot;#自写小提示&quot; class=&quot;headerlink&quot; title=&quot;自写小提示&quot;&gt;&lt;/a&gt;自写小提示&lt;/h2&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gu
+      
+    
+    </summary>
+    
+      <category term="Javascript" scheme="https://www.52anles.com/categories/Javascript/"/>
+    
+    
+      <category term="Javascript" scheme="https://www.52anles.com/tags/Javascript/"/>
+    
+  </entry>
   
   <entry>
     <title>通过window.history保存页面浏览记录</title>
