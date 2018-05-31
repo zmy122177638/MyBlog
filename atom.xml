@@ -5,9 +5,9 @@
   <subtitle>Give me a dream</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://122177638.github.io/MyBlog/"/>
-  <updated>2018-05-28T11:56:49.066Z</updated>
-  <id>https://122177638.github.io/MyBlog/</id>
+  <link href="https://www.52anles.com/"/>
+  <updated>2018-05-31T11:52:56.931Z</updated>
+  <id>https://www.52anles.com/</id>
   
   <author>
     <name>Anles</name>
@@ -17,9 +17,36 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>移动端Rem布局，Js动态计算。</title>
+    <link href="https://www.52anles.com/2018/05/31/Aritcle5/"/>
+    <id>https://www.52anles.com/2018/05/31/Aritcle5/</id>
+    <published>2018-05-31T15:04:42.000Z</published>
+    <updated>2018-05-31T11:52:56.931Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt; </span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">designWidth, maxWidth</span>) </span>&#123;</span><br><span class="line"><span class="keyword">var</span> doc = <span class="built_in">document</span>,</span><br><span class="line">win = <span class="built_in">window</span>,</span><br><span class="line">docEl = doc.documentElement,</span><br><span class="line">remStyle = <span class="built_in">document</span>.createElement(<span class="string">"style"</span>),</span><br><span class="line">tid;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">refreshRem</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> width = docEl.getBoundingClientRect().width;</span><br><span class="line">    maxWidth = maxWidth || <span class="number">540</span>;</span><br><span class="line">    width&gt;maxWidth &amp;&amp; (width=maxWidth);</span><br><span class="line">    <span class="keyword">var</span> rem = width * <span class="number">100</span> / designWidth;</span><br><span class="line">    remStyle.innerHTML = <span class="string">'html&#123;font-size:'</span> + rem + <span class="string">'px;&#125;'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (docEl.firstElementChild) &#123;</span><br><span class="line">    docEl.firstElementChild.appendChild(remStyle);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> wrap = doc.createElement(<span class="string">"div"</span>);</span><br><span class="line">    wrap.appendChild(remStyle);</span><br><span class="line">    doc.write(wrap.innerHTML);</span><br><span class="line">    wrap = <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//要等 wiewport 设置好后才能执行 refreshRem，不然 refreshRem 会执行2次；</span></span><br><span class="line">refreshRem();</span><br><span class="line"></span><br><span class="line">win.addEventListener(<span class="string">"resize"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    clearTimeout(tid); <span class="comment">//防止执行两次</span></span><br><span class="line">    tid = setTimeout(refreshRem, <span class="number">300</span>);</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">win.addEventListener(<span class="string">"pageshow"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (e.persisted) &#123; <span class="comment">// 浏览器后退的时候重新计算</span></span><br><span class="line">        clearTimeout(tid);</span><br><span class="line">        tid = setTimeout(refreshRem, <span class="number">300</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (doc.readyState === <span class="string">"complete"</span>) &#123;</span><br><span class="line">    doc.body.style.fontSize = <span class="string">"16px"</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    doc.addEventListener(<span class="string">"DOMContentLoaded"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">        doc.body.style.fontSize = <span class="string">"16px"</span>;</span><br><span class="line">    &#125;, <span class="literal">false</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;)(<span class="number">750</span>, <span class="number">750</span>);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span 
+      
+    
+    </summary>
+    
+      <category term="Javascript" scheme="https://www.52anles.com/categories/Javascript/"/>
+    
+    
+      <category term="Javascript" scheme="https://www.52anles.com/tags/Javascript/"/>
+    
+      <category term="html5" scheme="https://www.52anles.com/tags/html5/"/>
+    
+  </entry>
+  
+  <entry>
     <title>提示弹窗和手机验证倒计时</title>
-    <link href="https://122177638.github.io/MyBlog/2018/05/28/Aritcle4/"/>
-    <id>https://122177638.github.io/MyBlog/2018/05/28/Aritcle4/</id>
+    <link href="https://www.52anles.com/2018/05/28/Aritcle4/"/>
+    <id>https://www.52anles.com/2018/05/28/Aritcle4/</id>
     <published>2018-05-28T11:51:00.000Z</published>
     <updated>2018-05-28T11:56:49.066Z</updated>
     
@@ -34,17 +61,17 @@
     
     </summary>
     
-      <category term="Javascript" scheme="https://122177638.github.io/MyBlog/categories/Javascript/"/>
+      <category term="Javascript" scheme="https://www.52anles.com/categories/Javascript/"/>
     
     
-      <category term="Javascript" scheme="https://122177638.github.io/MyBlog/tags/Javascript/"/>
+      <category term="Javascript" scheme="https://www.52anles.com/tags/Javascript/"/>
     
   </entry>
   
   <entry>
     <title>通过window.history保存页面浏览记录</title>
-    <link href="https://122177638.github.io/MyBlog/2018/05/24/Article3/"/>
-    <id>https://122177638.github.io/MyBlog/2018/05/24/Article3/</id>
+    <link href="https://www.52anles.com/2018/05/24/Article3/"/>
+    <id>https://www.52anles.com/2018/05/24/Article3/</id>
     <published>2018-05-24T14:51:05.000Z</published>
     <updated>2018-05-24T07:49:02.702Z</updated>
     
@@ -59,19 +86,19 @@
     
     </summary>
     
-      <category term="Javascript" scheme="https://122177638.github.io/MyBlog/categories/Javascript/"/>
+      <category term="Javascript" scheme="https://www.52anles.com/categories/Javascript/"/>
     
     
-      <category term="html5" scheme="https://122177638.github.io/MyBlog/tags/html5/"/>
+      <category term="html5" scheme="https://www.52anles.com/tags/html5/"/>
     
-      <category term="javascript" scheme="https://122177638.github.io/MyBlog/tags/javascript/"/>
+      <category term="javascript" scheme="https://www.52anles.com/tags/javascript/"/>
     
   </entry>
   
   <entry>
     <title>移动端H5阻止弹窗穿透滚动</title>
-    <link href="https://122177638.github.io/MyBlog/2018/05/23/Ariticle2/"/>
-    <id>https://122177638.github.io/MyBlog/2018/05/23/Ariticle2/</id>
+    <link href="https://www.52anles.com/2018/05/23/Ariticle2/"/>
+    <id>https://www.52anles.com/2018/05/23/Ariticle2/</id>
     <published>2018-05-23T09:04:42.000Z</published>
     <updated>2018-05-24T07:48:07.617Z</updated>
     
@@ -86,17 +113,17 @@
     
     </summary>
     
-      <category term="Javascript" scheme="https://122177638.github.io/MyBlog/categories/Javascript/"/>
+      <category term="Javascript" scheme="https://www.52anles.com/categories/Javascript/"/>
     
     
-      <category term="Javascript" scheme="https://122177638.github.io/MyBlog/tags/Javascript/"/>
+      <category term="Javascript" scheme="https://www.52anles.com/tags/Javascript/"/>
     
   </entry>
   
   <entry>
     <title>使用git提交代码至Github</title>
-    <link href="https://122177638.github.io/MyBlog/2018/05/22/Article1/"/>
-    <id>https://122177638.github.io/MyBlog/2018/05/22/Article1/</id>
+    <link href="https://www.52anles.com/2018/05/22/Article1/"/>
+    <id>https://www.52anles.com/2018/05/22/Article1/</id>
     <published>2018-05-22T14:51:05.000Z</published>
     <updated>2018-05-23T09:56:06.560Z</updated>
     
@@ -112,19 +139,19 @@
     
     </summary>
     
-      <category term="Github" scheme="https://122177638.github.io/MyBlog/categories/Github/"/>
+      <category term="Github" scheme="https://www.52anles.com/categories/Github/"/>
     
     
-      <category term="Git" scheme="https://122177638.github.io/MyBlog/tags/Git/"/>
+      <category term="Git" scheme="https://www.52anles.com/tags/Git/"/>
     
-      <category term="Github" scheme="https://122177638.github.io/MyBlog/tags/Github/"/>
+      <category term="Github" scheme="https://www.52anles.com/tags/Github/"/>
     
   </entry>
   
   <entry>
     <title>恭喜您，Anles至尊会员，您的博客诞生了。</title>
-    <link href="https://122177638.github.io/MyBlog/2018/05/22/blog1/"/>
-    <id>https://122177638.github.io/MyBlog/2018/05/22/blog1/</id>
+    <link href="https://www.52anles.com/2018/05/22/blog1/"/>
+    <id>https://www.52anles.com/2018/05/22/blog1/</id>
     <published>2018-05-22T09:51:05.000Z</published>
     <updated>2018-05-23T07:40:13.314Z</updated>
     
@@ -142,10 +169,10 @@
     
     </summary>
     
-      <category term="MarkdowPad" scheme="https://122177638.github.io/MyBlog/categories/MarkdowPad/"/>
+      <category term="MarkdowPad" scheme="https://www.52anles.com/categories/MarkdowPad/"/>
     
     
-      <category term="博客诞生了" scheme="https://122177638.github.io/MyBlog/tags/%E5%8D%9A%E5%AE%A2%E8%AF%9E%E7%94%9F%E4%BA%86/"/>
+      <category term="博客诞生了" scheme="https://www.52anles.com/tags/%E5%8D%9A%E5%AE%A2%E8%AF%9E%E7%94%9F%E4%BA%86/"/>
     
   </entry>
   
