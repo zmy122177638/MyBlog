@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.52anles.com/"/>
-  <updated>2018-05-31T11:55:09.228Z</updated>
+  <updated>2018-06-04T01:42:05.679Z</updated>
   <id>https://www.52anles.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>调用微信内置图片浏览功能</title>
+    <link href="https://www.52anles.com/2018/06/04/Ariticle6/"/>
+    <id>https://www.52anles.com/2018/06/04/Ariticle6/</id>
+    <published>2018-06-04T12:04:42.000Z</published>
+    <updated>2018-06-04T01:42:05.679Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addLoadEvent</span>(<span class="params">func</span>)</span>&#123; </span><br><span class="line">  <span class="comment">//将函数作为参数，此函数就是 onload 触发时需要执行的某个函数</span></span><br><span class="line">      <span class="keyword">var</span> oldonload=<span class="built_in">window</span>.onload; </span><br><span class="line">      <span class="comment">//将原来的 onload 的值赋给临时变量 oldonload。</span></span><br><span class="line">      <span class="keyword">if</span>(<span class="keyword">typeof</span> <span class="built_in">window</span>.onload!=<span class="string">"function"</span>)&#123;</span><br><span class="line">      <span class="comment">//判断 onload 的类型是否是 function。如果已经执行window.onload=function()&#123;...&#125; 赋值，那么此时 onload 的类型就是 function</span></span><br><span class="line">      <span class="comment">//否，则说明 onload 还没有被赋值，当前任务 func 为第一个加入的任务</span></span><br><span class="line">          <span class="built_in">window</span>.onload=func(); </span><br><span class="line">          </span><br><span class="line">          <span class="comment">//作为第一个任务，给 onload 赋值</span></span><br><span class="line">      &#125;<span class="keyword">else</span>&#123; </span><br><span class="line">      <span class="comment">//是，则说明 onload 已被赋值，onload 中先前已有任务加入</span></span><br><span class="line">          <span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">              oldonload();</span><br><span class="line">              func(); </span><br><span class="line">              <span class="comment">//作为后续任务，追加到先前的任务后面</span></span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> imgs=<span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line"><span class="keyword">var</span> nowImgurl=<span class="string">""</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getPicInfo</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">var</span> imgObj=<span class="built_in">document</span>.getElementsByTagName(<span class="string">'img'</span>);  <span class="comment">//获取图文中所有的img标签对象</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;imgObj.length; i++)</span><br><span class="line">  &#123;</span><br><span class="line">    imgs.push(imgObj[i].src); </span><br><span class="line">    nowImgurl = <span class="keyword">this</span>.src;    <span class="comment">//获取当前点击图片url</span></span><br><span class="line">    <span class="comment">//下面调用微信内置图片浏览组建</span></span><br><span class="line">    imgObj[i].onclick=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      WeixinJSBridge.invoke(<span class="string">"imagePreview"</span>,&#123;</span><br><span class="line">        <span class="string">"urls"</span>:imgs,</span><br><span class="line">        <span class="string">"current"</span>:nowImgurl</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">addLoadEvent(getPicInfo);    <span class="comment">//监听事件</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span 
+      
+    
+    </summary>
+    
+      <category term="Javascript" scheme="https://www.52anles.com/categories/Javascript/"/>
+    
+    
+      <category term="Javascript" scheme="https://www.52anles.com/tags/Javascript/"/>
+    
+      <category term="html5" scheme="https://www.52anles.com/tags/html5/"/>
+    
+  </entry>
   
   <entry>
     <title>移动端Rem布局，Js动态计算。</title>
