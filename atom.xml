@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.52anles.com/"/>
-  <updated>2018-06-15T06:47:33.639Z</updated>
+  <updated>2018-06-15T10:12:10.627Z</updated>
   <id>https://www.52anles.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Canvas实现文字自动换行</title>
+    <link href="https://www.52anles.com/2018/06/15/Aritcle9/"/>
+    <id>https://www.52anles.com/2018/06/15/Aritcle9/</id>
+    <published>2018-06-15T10:09:33.000Z</published>
+    <updated>2018-06-15T10:12:10.627Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">autoNewRow(<span class="number">15</span>,canvas.height/<span class="number">2.5</span>+<span class="number">140</span>,text,<span class="number">42</span>,<span class="number">18</span>)  </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">autoNewRow</span>(<span class="params">darwX,darwY,text,lineWidth,lineHeight</span>)</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getTrueLength</span>(<span class="params">str,lineWidth,lineheight</span>)</span>&#123;<span class="comment">//获取字符串的真实长度（字节长度）</span></span><br><span class="line">        <span class="keyword">var</span> len = str.length, truelen = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> x = <span class="number">0</span>; x &lt; len; x++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(str.charCodeAt(x) &gt; <span class="number">128</span>)&#123;</span><br><span class="line">                truelen += <span class="number">2</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                truelen += <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> truelen;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">cutString</span>(<span class="params">str, leng</span>)</span>&#123;<span class="comment">//按字节长度截取字符串，返回substr截取位置</span></span><br><span class="line">        <span class="keyword">var</span> len = str.length, tlen = len, nlen = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> x = <span class="number">0</span>; x &lt; len; x++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(str.charCodeAt(x) &gt; <span class="number">128</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nlen + <span class="number">2</span> &lt; leng)&#123;</span><br><span class="line">                    nlen += <span class="number">2</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    tlen = x;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(nlen + <span class="number">1</span> &lt; leng)&#123;</span><br><span class="line">                    nlen += <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    tlen = x;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> tlen;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">1</span>; getTrueLength(text) &gt; <span class="number">0</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">var</span> tl = cutString(text, lineWidth);</span><br><span class="line">        ctx.fillText(text.substr(<span class="number">0</span>, tl).replace(<span class="regexp">/^\s+|\s+$/</span>, <span class="string">""</span>), darwX, i * lineHeight + darwY);</span><br><span class="line">        text = text.substr(tl);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span 
+      
+    
+    </summary>
+    
+      <category term="canvas" scheme="https://www.52anles.com/categories/canvas/"/>
+    
+    
+      <category term="Javascript" scheme="https://www.52anles.com/tags/Javascript/"/>
+    
+      <category term="canvas" scheme="https://www.52anles.com/tags/canvas/"/>
+    
+  </entry>
   
   <entry>
     <title>原生js封装ajax</title>
@@ -64,9 +91,9 @@
       <category term="html5" scheme="https://www.52anles.com/categories/html5/"/>
     
     
-      <category term="Javascript" scheme="https://www.52anles.com/tags/Javascript/"/>
-    
       <category term="html5" scheme="https://www.52anles.com/tags/html5/"/>
+    
+      <category term="Javascript" scheme="https://www.52anles.com/tags/Javascript/"/>
     
   </entry>
   
@@ -91,9 +118,9 @@
       <category term="Javascript" scheme="https://www.52anles.com/categories/Javascript/"/>
     
     
-      <category term="Javascript" scheme="https://www.52anles.com/tags/Javascript/"/>
-    
       <category term="html5" scheme="https://www.52anles.com/tags/html5/"/>
+    
+      <category term="Javascript" scheme="https://www.52anles.com/tags/Javascript/"/>
     
   </entry>
   
@@ -118,9 +145,9 @@
       <category term="Javascript" scheme="https://www.52anles.com/categories/Javascript/"/>
     
     
-      <category term="Javascript" scheme="https://www.52anles.com/tags/Javascript/"/>
-    
       <category term="html5" scheme="https://www.52anles.com/tags/html5/"/>
+    
+      <category term="Javascript" scheme="https://www.52anles.com/tags/Javascript/"/>
     
   </entry>
   
