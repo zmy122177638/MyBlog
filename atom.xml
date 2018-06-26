@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.52anles.com/"/>
-  <updated>2018-06-15T10:12:10.627Z</updated>
+  <updated>2018-06-26T06:30:51.123Z</updated>
   <id>https://www.52anles.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>原生JS实现淡入、淡出、过渡效果(scroll)</title>
+    <link href="https://www.52anles.com/2018/06/26/Ariticle10/"/>
+    <id>https://www.52anles.com/2018/06/26/Ariticle10/</id>
+    <published>2018-06-26T06:25:47.000Z</published>
+    <updated>2018-06-26T06:30:51.123Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> tool = &#123; </span><br><span class="line"><span class="comment">//此方法为了避免在 ms 段时间内，多次执行func。常用 resize、scoll、mousemove等连续性事件中 </span></span><br><span class="line">buffer: <span class="function"><span class="keyword">function</span>(<span class="params">func, ms, context</span>)</span>&#123; </span><br><span class="line"><span class="keyword">var</span> buffer; </span><br><span class="line"><span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;  </span><br><span class="line"><span class="keyword">if</span>(buffer) <span class="keyword">return</span>; </span><br><span class="line">buffer = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">func.call(<span class="keyword">this</span>) </span><br><span class="line">buffer = <span class="literal">undefined</span>; </span><br><span class="line">&#125;,ms); </span><br><span class="line">&#125;; </span><br><span class="line">&#125;, </span><br><span class="line"><span class="comment">/*读取或设置元素的透明度*/</span> </span><br><span class="line">opacity: <span class="function"><span class="keyword">function</span>(<span class="params">elem, val</span>)</span>&#123; </span><br><span class="line"><span class="keyword">var</span> setting = <span class="built_in">arguments</span>.length &gt; <span class="number">1</span>; </span><br><span class="line"><span class="keyword">if</span>(<span class="string">"opacity"</span> <span class="keyword">in</span> elem.style)&#123;<span class="comment">//elem.style["opacity"] 读取不到CSS class中的值 </span></span><br><span class="line"><span class="keyword">return</span> setting ? elem.style[<span class="string">"opacity"</span>] = val : elem.style[<span class="string">"opacity"</span>]; </span><br><span class="line">&#125;<span class="keyword">else</span>&#123; </span><br><span class="line"><span class="keyword">if</span>(elem.filters &amp;&amp; elem.filters.alpha) &#123; </span><br><span class="line"><span class="keyword">return</span> setting ? elem.filters.alpha[<span class="string">"opacity"</span>] = val*<span class="number">100</span> : elem.filters.alpha[<span class="string">"opacity"</span>]/<span class="number">100</span>; </span><br><span class="line">&#125; </span><br><span class="line">&#125; </span><br><span class="line">&#125;, </span><br><span class="line"><span class="comment">//获取或设置文档对象的scrollTop </span></span><br><span class="line"><span class="comment">//function([val]) </span></span><br><span class="line">documentScrollTop: <span class="function"><span class="keyword">function</span>(<span class="params">val</span>)</span>&#123; </span><br><span class="line"><span class="keyword">var</span> elem = <span class="built_in">document</span>; </span><br><span class="line"><span class="keyword">return</span> (val!== <span class="literal">undefined</span>) ? </span><br><span class="line">elem.documentElement.scrollTop = elem.body.scrollTop = val : </span><br><span class="line"><span class="built_in">Math</span>.max(elem.documentElement.scrollTop, elem.body.scrollTop); </span><br><span class="line">&#125; </span><br><span class="line">&#125;; </span><br><span class="line"><span class="comment">//动画效果 </span></span><br><span class="line"><span class="keyword">var</span> effect = &#123; </span><br><span class="line"> <span class="comment">//淡入 </span></span><br><span class="line">fadein: <span class="function"><span class="keyword">function</span> (<span class="params">elem</span>)</span>&#123; </span><br><span class="line"><span class="keyword">var</span> val = <span class="number">0</span>; </span><br><span class="line"><span class="keyword">var</span> interval = <span class="number">25</span>; </span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">val += <span class="number">0.1</span>; </span><br><span class="line"><span class="keyword">if</span>(val&gt;<span class="number">1</span>)&#123; </span><br><span class="line">tool.opacity(elem, <span class="number">1</span>) </span><br><span class="line"><span class="keyword">return</span>; </span><br><span class="line">&#125;<span class="keyword">else</span> &#123; </span><br><span class="line">tool.opacity(elem, val) </span><br><span class="line">setTimeout(<span class="built_in">arguments</span>.callee, interval); </span><br><span class="line">&#125; </span><br><span class="line">&#125;,interval); </span><br><span class="line">&#125;, </span><br><span class="line"><span class="comment">//淡出 </span></span><br><span class="line">fadeout: <span class="function"><span class="keyword">function</span> (<span class="params">elem</span>)</span>&#123; </span><br><span class="line"><span class="keyword">var</span> val = <span class="number">1</span>; </span><br><span class="line"><span class="keyword">var</span> interval = <span class="number">25</span>; </span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">val -= <span class="number">0.1</span>; </span><br><span class="line"><span class="keyword">if</span>(val &lt; <span class="number">0</span>)&#123; </span><br><span class="line">tool.opacity(elem, <span class="number">0</span>) </span><br><span class="line"><span class="keyword">return</span>; </span><br><span class="line">&#125;<span class="keyword">else</span> &#123; </span><br><span class="line">tool.opacity(elem,val) ; </span><br><span class="line">setTimeout(<span class="built_in">arguments</span>.callee, interval); </span><br><span class="line">&#125; </span><br><span class="line">&#125;,interval); </span><br><span class="line">&#125;, </span><br><span class="line"><span class="comment">//过渡移动滚动条 </span></span><br><span class="line">move: <span class="function"><span class="keyword">function</span>(<span class="params">scrollTop</span>)</span>&#123; </span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">scrollTop = <span class="built_in">Math</span>.floor((scrollTop * <span class="number">0.65</span>));</span><br><span class="line">tool.documentScrollTop(scrollTop); </span><br><span class="line"><span class="keyword">if</span>(scrollTop !=<span class="number">0</span> )&#123; </span><br><span class="line">setTimeout(<span class="built_in">arguments</span>.callee, <span class="number">25</span>); </span><br><span class="line">&#125; </span><br><span class="line">&#125;,<span class="number">25</span>); </span><br><span class="line">&#125; </span><br><span class="line">&#125;;</span><br><span class="line"> <span class="comment">//执行调用</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="comment">//gotop </span></span><br><span class="line"><span class="keyword">var</span> visible = <span class="literal">false</span>; </span><br><span class="line"><span class="keyword">var</span> elem = <span class="built_in">document</span>.getElementById(<span class="string">"gotop"</span>); </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onscroll</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line"><span class="keyword">var</span> scrollTop = tool.documentScrollTop(); </span><br><span class="line"><span class="keyword">if</span>(scrollTop &gt; <span class="number">0</span>)&#123; </span><br><span class="line"><span class="keyword">if</span>(!visible)&#123; </span><br><span class="line">effect.fadein(elem) </span><br><span class="line">visible = <span class="literal">true</span>; </span><br><span class="line">&#125; </span><br><span class="line">&#125;<span class="keyword">else</span>&#123; </span><br><span class="line"><span class="keyword">if</span>(visible)&#123; </span><br><span class="line">effect.fadeout(elem); </span><br><span class="line">visible = <span class="literal">false</span>; </span><br><span class="line">&#125; </span><br><span class="line">&#125; </span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onclick</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line"><span class="keyword">var</span> scrollTop = tool.documentScrollTop(); </span><br><span class="line">effect.move(scrollTop); </span><br><span class="line">&#125; </span><br><span class="line">elem.onclick = onclick; </span><br><span class="line"><span class="built_in">window</span>.onscroll = tool.buffer(onscroll, <span class="number">200</span>, <span class="keyword">this</span>); </span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span 
+      
+    
+    </summary>
+    
+      <category term="Javascript" scheme="https://www.52anles.com/categories/Javascript/"/>
+    
+    
+      <category term="Javascript" scheme="https://www.52anles.com/tags/Javascript/"/>
+    
+  </entry>
   
   <entry>
     <title>Canvas实现文字自动换行</title>
@@ -91,9 +116,9 @@
       <category term="html5" scheme="https://www.52anles.com/categories/html5/"/>
     
     
-      <category term="html5" scheme="https://www.52anles.com/tags/html5/"/>
-    
       <category term="Javascript" scheme="https://www.52anles.com/tags/Javascript/"/>
+    
+      <category term="html5" scheme="https://www.52anles.com/tags/html5/"/>
     
   </entry>
   
@@ -118,9 +143,9 @@
       <category term="Javascript" scheme="https://www.52anles.com/categories/Javascript/"/>
     
     
-      <category term="html5" scheme="https://www.52anles.com/tags/html5/"/>
-    
       <category term="Javascript" scheme="https://www.52anles.com/tags/Javascript/"/>
+    
+      <category term="html5" scheme="https://www.52anles.com/tags/html5/"/>
     
   </entry>
   
@@ -145,9 +170,9 @@
       <category term="Javascript" scheme="https://www.52anles.com/categories/Javascript/"/>
     
     
-      <category term="html5" scheme="https://www.52anles.com/tags/html5/"/>
-    
       <category term="Javascript" scheme="https://www.52anles.com/tags/Javascript/"/>
+    
+      <category term="html5" scheme="https://www.52anles.com/tags/html5/"/>
     
   </entry>
   

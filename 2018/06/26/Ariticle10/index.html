@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Git,Github," />
+  <meta name="keywords" content="Javascript," />
 
 
 
@@ -81,20 +81,18 @@
 
 
 
-<meta name="description" content="简单几步实现Git提交代码 $ git config –global user.name “Anles”  $ git config –global user.email “122177638@qq.com“  $ ssh-keygen -t rsa -C “122177638@qq.com“ —生成秘钥 打开id_rsa.pub密钥文件复制 登录github,在setting内设置新的SSH密钥">
-<meta name="keywords" content="Git,Github">
+<meta name="description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100var tool">
+<meta name="keywords" content="Javascript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用git提交代码至Github">
-<meta property="og:url" content="https://www.52anles.com/2018/05/22/Article1/index.html">
+<meta property="og:title" content="原生JS实现淡入、淡出、过渡效果(scroll)">
+<meta property="og:url" content="https://www.52anles.com/2018/06/26/Ariticle10/index.html">
 <meta property="og:site_name" content="Anles">
-<meta property="og:description" content="简单几步实现Git提交代码 $ git config –global user.name “Anles”  $ git config –global user.email “122177638@qq.com“  $ ssh-keygen -t rsa -C “122177638@qq.com“ —生成秘钥 打开id_rsa.pub密钥文件复制 登录github,在setting内设置新的SSH密钥">
+<meta property="og:description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100var tool">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://www.52anles.com/2018/05/22/Article1/git_help.png">
-<meta property="og:updated_time" content="2018-05-23T09:56:06.560Z">
+<meta property="og:updated_time" content="2018-06-26T06:30:51.123Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用git提交代码至Github">
-<meta name="twitter:description" content="简单几步实现Git提交代码 $ git config –global user.name “Anles”  $ git config –global user.email “122177638@qq.com“  $ ssh-keygen -t rsa -C “122177638@qq.com“ —生成秘钥 打开id_rsa.pub密钥文件复制 登录github,在setting内设置新的SSH密钥">
-<meta name="twitter:image" content="https://www.52anles.com/2018/05/22/Article1/git_help.png">
+<meta name="twitter:title" content="原生JS实现淡入、淡出、过渡效果(scroll)">
+<meta name="twitter:description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100var tool">
 
 
 
@@ -124,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://www.52anles.com/2018/05/22/Article1/"/>
+  <link rel="canonical" href="https://www.52anles.com/2018/06/26/Ariticle10/"/>
 
 
 
 
 
-  <title>使用git提交代码至Github | Anles</title>
+  <title>原生JS实现淡入、淡出、过渡效果(scroll) | Anles</title>
   
 
 
@@ -277,7 +275,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.52anles.com/2018/05/22/Article1/">
+    <link itemprop="mainEntityOfPage" href="https://www.52anles.com/2018/06/26/Ariticle10/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Anles">
@@ -294,7 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">使用git提交代码至Github</h1>
+          <h1 class="post-title" itemprop="name headline">原生JS实现淡入、淡出、过渡效果(scroll)</h1>
         
 
         <div class="post-meta">
@@ -306,8 +304,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-22T22:51:05+08:00">
-                2018-05-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-26T14:25:47+08:00">
+                2018-06-26
               </time>
             
 
@@ -329,8 +327,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Github/" itemprop="url" rel="index">
-                    <span itemprop="name">Github</span>
+                  <a href="/categories/Javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">Javascript</span>
                   </a>
                 </span>
 
@@ -366,22 +364,7 @@
       
 
       
-        <h2 id="简单几步实现Git提交代码"><a href="#简单几步实现Git提交代码" class="headerlink" title="简单几步实现Git提交代码"></a>简单几步实现Git提交代码</h2><ul>
-<li>$ git config –global user.name “Anles” </li>
-<li>$ git config –global user.email “<a href="mailto:122177638@qq.com" target="_blank" rel="noopener">122177638@qq.com</a>“ </li>
-<li>$ ssh-keygen -t rsa -C “<a href="mailto:122177638@qq.com" target="_blank" rel="noopener">122177638@qq.com</a>“ —生成秘钥</li>
-<li>打开id_rsa.pub密钥文件复制</li>
-<li>登录github,在setting内设置新的SSH密钥并建立github仓库</li>
-<li>$ git init  —初始化</li>
-<li>$ git add . —将选择的文件添加到仓库</li>
-<li>$ git commit -m “提交文件” —本次提交注释</li>
-<li>$ git remote add origin “github仓库地址” —添加远程仓库</li>
-<li>$ git push origin master  —上传本地代码</li>
-</ul>
-<h2 id="常用git命令大全"><a href="#常用git命令大全" class="headerlink" title="常用git命令大全"></a>常用git命令大全</h2><ul>
-<li>$ ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a> —验证有没有连接远程服务器</li>
-<li>$ git pull -rebase origin master //合并代码<br><img src="git_help.png" title="git常用命令"></li>
-</ul>
+        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> tool = &#123; </span><br><span class="line">	<span class="comment">//此方法为了避免在 ms 段时间内，多次执行func。常用 resize、scoll、mousemove等连续性事件中 </span></span><br><span class="line">	buffer: <span class="function"><span class="keyword">function</span>(<span class="params">func, ms, context</span>)</span>&#123; </span><br><span class="line">		<span class="keyword">var</span> buffer; </span><br><span class="line">		<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;  </span><br><span class="line">			<span class="keyword">if</span>(buffer) <span class="keyword">return</span>; </span><br><span class="line">			buffer = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">				func.call(<span class="keyword">this</span>) </span><br><span class="line">				buffer = <span class="literal">undefined</span>; </span><br><span class="line">			&#125;,ms); </span><br><span class="line">		&#125;; </span><br><span class="line">	&#125;, </span><br><span class="line">	<span class="comment">/*读取或设置元素的透明度*/</span> </span><br><span class="line">	opacity: <span class="function"><span class="keyword">function</span>(<span class="params">elem, val</span>)</span>&#123; </span><br><span class="line">		<span class="keyword">var</span> setting = <span class="built_in">arguments</span>.length &gt; <span class="number">1</span>; </span><br><span class="line">		<span class="keyword">if</span>(<span class="string">"opacity"</span> <span class="keyword">in</span> elem.style)&#123;<span class="comment">//elem.style["opacity"] 读取不到CSS class中的值 </span></span><br><span class="line">			<span class="keyword">return</span> setting ? elem.style[<span class="string">"opacity"</span>] = val : elem.style[<span class="string">"opacity"</span>]; </span><br><span class="line">		&#125;<span class="keyword">else</span>&#123; </span><br><span class="line">			<span class="keyword">if</span>(elem.filters &amp;&amp; elem.filters.alpha) &#123; </span><br><span class="line">				<span class="keyword">return</span> setting ? elem.filters.alpha[<span class="string">"opacity"</span>] = val*<span class="number">100</span> : 				elem.filters.alpha[<span class="string">"opacity"</span>]/<span class="number">100</span>; </span><br><span class="line">			&#125; </span><br><span class="line">		&#125; </span><br><span class="line">	&#125;, </span><br><span class="line">	<span class="comment">//获取或设置文档对象的scrollTop </span></span><br><span class="line">	<span class="comment">//function([val]) </span></span><br><span class="line">	documentScrollTop: <span class="function"><span class="keyword">function</span>(<span class="params">val</span>)</span>&#123; </span><br><span class="line">		<span class="keyword">var</span> elem = <span class="built_in">document</span>; </span><br><span class="line">		<span class="keyword">return</span> (val!== <span class="literal">undefined</span>) ? </span><br><span class="line">		elem.documentElement.scrollTop = elem.body.scrollTop = val : </span><br><span class="line">		<span class="built_in">Math</span>.max(elem.documentElement.scrollTop, elem.body.scrollTop); </span><br><span class="line">	&#125; </span><br><span class="line">&#125;; </span><br><span class="line"><span class="comment">//动画效果 </span></span><br><span class="line"><span class="keyword">var</span> effect = &#123; </span><br><span class="line"> 	<span class="comment">//淡入 </span></span><br><span class="line">	fadein: <span class="function"><span class="keyword">function</span> (<span class="params">elem</span>)</span>&#123; </span><br><span class="line">		<span class="keyword">var</span> val = <span class="number">0</span>; </span><br><span class="line">		<span class="keyword">var</span> interval = <span class="number">25</span>; </span><br><span class="line">		setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">			val += <span class="number">0.1</span>; </span><br><span class="line">			<span class="keyword">if</span>(val&gt;<span class="number">1</span>)&#123; </span><br><span class="line">				tool.opacity(elem, <span class="number">1</span>) </span><br><span class="line">				<span class="keyword">return</span>; </span><br><span class="line">			&#125;<span class="keyword">else</span> &#123; </span><br><span class="line">				tool.opacity(elem, val) </span><br><span class="line">				setTimeout(<span class="built_in">arguments</span>.callee, interval); </span><br><span class="line">			&#125; </span><br><span class="line">		&#125;,interval); </span><br><span class="line">	&#125;, </span><br><span class="line">	<span class="comment">//淡出 </span></span><br><span class="line">	fadeout: <span class="function"><span class="keyword">function</span> (<span class="params">elem</span>)</span>&#123; </span><br><span class="line">		<span class="keyword">var</span> val = <span class="number">1</span>; </span><br><span class="line">		<span class="keyword">var</span> interval = <span class="number">25</span>; </span><br><span class="line">		setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">			val -= <span class="number">0.1</span>; </span><br><span class="line">			<span class="keyword">if</span>(val &lt; <span class="number">0</span>)&#123; </span><br><span class="line">				tool.opacity(elem, <span class="number">0</span>) </span><br><span class="line">				<span class="keyword">return</span>; </span><br><span class="line">			&#125;<span class="keyword">else</span> &#123; </span><br><span class="line">				tool.opacity(elem,val) ; </span><br><span class="line">				setTimeout(<span class="built_in">arguments</span>.callee, interval); </span><br><span class="line">			&#125; </span><br><span class="line">		&#125;,interval); </span><br><span class="line">	&#125;, </span><br><span class="line">	<span class="comment">//过渡移动滚动条 </span></span><br><span class="line">	move: <span class="function"><span class="keyword">function</span>(<span class="params">scrollTop</span>)</span>&#123; </span><br><span class="line">		setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">			scrollTop = <span class="built_in">Math</span>.floor((scrollTop * <span class="number">0.65</span>));</span><br><span class="line">			tool.documentScrollTop(scrollTop); </span><br><span class="line">			<span class="keyword">if</span>(scrollTop !=<span class="number">0</span> )&#123; </span><br><span class="line">				setTimeout(<span class="built_in">arguments</span>.callee, <span class="number">25</span>); </span><br><span class="line">			&#125; </span><br><span class="line">		&#125;,<span class="number">25</span>); </span><br><span class="line">	&#125; </span><br><span class="line">&#125;;</span><br><span class="line"> <span class="comment">//执行调用</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="comment">//gotop </span></span><br><span class="line">	<span class="keyword">var</span> visible = <span class="literal">false</span>; </span><br><span class="line">	<span class="keyword">var</span> elem = <span class="built_in">document</span>.getElementById(<span class="string">"gotop"</span>); </span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">onscroll</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">		<span class="keyword">var</span> scrollTop = tool.documentScrollTop(); </span><br><span class="line">		<span class="keyword">if</span>(scrollTop &gt; <span class="number">0</span>)&#123; </span><br><span class="line">			<span class="keyword">if</span>(!visible)&#123; </span><br><span class="line">				effect.fadein(elem) </span><br><span class="line">				visible = <span class="literal">true</span>; </span><br><span class="line">			&#125; </span><br><span class="line">		&#125;<span class="keyword">else</span>&#123; </span><br><span class="line">			<span class="keyword">if</span>(visible)&#123; </span><br><span class="line">				effect.fadeout(elem); </span><br><span class="line">				visible = <span class="literal">false</span>; </span><br><span class="line">			&#125; </span><br><span class="line">		&#125; </span><br><span class="line">	&#125; </span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">onclick</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">		<span class="keyword">var</span> scrollTop = tool.documentScrollTop(); </span><br><span class="line">		effect.move(scrollTop); </span><br><span class="line">	&#125; </span><br><span class="line">	elem.onclick = onclick; </span><br><span class="line">	<span class="built_in">window</span>.onscroll = tool.buffer(onscroll, <span class="number">200</span>, <span class="keyword">this</span>); </span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -409,9 +392,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Git/" rel="tag"><i class="fa fa-tag"></i> Git</a>
-          
-            <a href="/tags/Github/" rel="tag"><i class="fa fa-tag"></i> Github</a>
+            <a href="/tags/Javascript/" rel="tag"><i class="fa fa-tag"></i> Javascript</a>
           
         </div>
       
@@ -424,8 +405,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/22/blog1/" rel="next" title="恭喜您，Anles至尊会员，您的博客诞生了。">
-                <i class="fa fa-chevron-left"></i> 恭喜您，Anles至尊会员，您的博客诞生了。
+              <a href="/2018/06/15/Aritcle9/" rel="next" title="Canvas实现文字自动换行">
+                <i class="fa fa-chevron-left"></i> Canvas实现文字自动换行
               </a>
             
           </div>
@@ -433,10 +414,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/23/Ariticle2/" rel="prev" title="移动端H5阻止弹窗穿透滚动">
-                移动端H5阻止弹窗穿透滚动 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -493,17 +470,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -590,22 +558,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简单几步实现Git提交代码"><span class="nav-number">1.</span> <span class="nav-text">简单几步实现Git提交代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用git命令大全"><span class="nav-number">2.</span> <span class="nav-text">常用git命令大全</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
