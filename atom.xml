@@ -141,9 +141,9 @@
       <category term="html5" scheme="https://122177638.github.io/MyBlog/categories/html5/"/>
     
     
-      <category term="Javascript" scheme="https://122177638.github.io/MyBlog/tags/Javascript/"/>
-    
       <category term="html5" scheme="https://122177638.github.io/MyBlog/tags/html5/"/>
+    
+      <category term="Javascript" scheme="https://122177638.github.io/MyBlog/tags/Javascript/"/>
     
   </entry>
   
@@ -168,9 +168,9 @@
       <category term="Javascript" scheme="https://122177638.github.io/MyBlog/categories/Javascript/"/>
     
     
-      <category term="Javascript" scheme="https://122177638.github.io/MyBlog/tags/Javascript/"/>
-    
       <category term="html5" scheme="https://122177638.github.io/MyBlog/tags/html5/"/>
+    
+      <category term="Javascript" scheme="https://122177638.github.io/MyBlog/tags/Javascript/"/>
     
   </entry>
   
@@ -195,9 +195,9 @@
       <category term="Javascript" scheme="https://122177638.github.io/MyBlog/categories/Javascript/"/>
     
     
-      <category term="Javascript" scheme="https://122177638.github.io/MyBlog/tags/Javascript/"/>
-    
       <category term="html5" scheme="https://122177638.github.io/MyBlog/tags/html5/"/>
+    
+      <category term="Javascript" scheme="https://122177638.github.io/MyBlog/tags/Javascript/"/>
     
   </entry>
   
@@ -283,9 +283,9 @@
     <link href="https://122177638.github.io/MyBlog/2018/05/22/Article1/"/>
     <id>https://122177638.github.io/MyBlog/2018/05/22/Article1/</id>
     <published>2018-05-22T14:51:05.000Z</published>
-    <updated>2018-05-23T09:56:06.560Z</updated>
+    <updated>2018-09-26T02:07:27.898Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="简单几步实现Git提交代码"><a href="#简单几步实现Git提交代码" class="headerlink" title="简单几步实现Git提交代码"></a>简单几步实现Git提交代码</h2><ul><li>$ git config –global user.name “Anles” </li><li>$ git config –global user.email “<a href="mailto:122177638@qq.com" target="_blank" rel="noopener">122177638@qq.com</a>“ </li><li>$ ssh-keygen -t rsa -C “<a href="mailto:122177638@qq.com" target="_blank" rel="noopener">122177638@qq.com</a>“ —生成秘钥</li><li>打开id_rsa.pub密钥文件复制</li><li>登录github,在setting内设置新的SSH密钥并建立github仓库</li><li>$ git init  —初始化</li><li>$ git add . —将选择的文件添加到仓库</li><li>$ git commit -m “提交文件” —本次提交注释</li><li>$ git remote add origin “github仓库地址” —添加远程仓库</li><li>$ git push origin master  —上传本地代码</li></ul><h2 id="常用git命令大全"><a href="#常用git命令大全" class="headerlink" title="常用git命令大全"></a>常用git命令大全</h2><ul><li>$ ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a> —验证有没有连接远程服务器</li><li>$ git pull -rebase origin master //合并代码<br><img src="git_help.png" title="git常用命令"></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="简单几步实现Git提交代码"><a href="#简单几步实现Git提交代码" class="headerlink" title="简单几步实现Git提交代码"></a>简单几步实现Git提交代码</h2><ul><li>$ git config –global user.name “Anles” </li><li>$ git config –global user.email “<a href="mailto:122177638@qq.com" target="_blank" rel="noopener">122177638@qq.com</a>“ </li><li>$ ssh-keygen -t rsa -C “<a href="mailto:122177638@qq.com" target="_blank" rel="noopener">122177638@qq.com</a>“ —生成秘钥</li><li>打开id_rsa.pub密钥文件复制</li><li>登录github,在setting内设置新的SSH密钥并建立github仓库</li><li>$ git init  —初始化</li><li>$ git add . —将选择的文件添加到仓库</li><li>$ git commit -m “提交文件” —本次提交注释</li><li>$ git remote add origin “github仓库地址” —添加远程仓库</li><li>$ git push origin master  —上传本地代码</li></ul><h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><ul><li>$ git rm –cached -r useless —useless文件名</li><li>$ git commit -m “remove directory from remote repository”</li><li>$ git push origin master<h2 id="常用git命令大全"><a href="#常用git命令大全" class="headerlink" title="常用git命令大全"></a>常用git命令大全</h2></li><li>$ ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a> —验证有没有连接远程服务器</li><li>$ git pull -rebase origin master //合并代码<br><img src="git_help.png" title="git常用命令"></li></ul>]]></content>
     
     <summary type="html">
     
