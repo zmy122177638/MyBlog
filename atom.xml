@@ -6,7 +6,7 @@
   <link href="/MyBlog/atom.xml" rel="self"/>
   
   <link href="https://122177638.github.io/MyBlog/"/>
-  <updated>2018-09-27T03:52:04.427Z</updated>
+  <updated>2018-10-16T07:55:18.566Z</updated>
   <id>https://122177638.github.io/MyBlog/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://122177638.github.io/MyBlog/2018/10/16/Aritcle13/"/>
+    <id>https://122177638.github.io/MyBlog/2018/10/16/Aritcle13/</id>
+    <published>2018-10-16T07:56:33.616Z</published>
+    <updated>2018-10-16T07:55:18.566Z</updated>
+    
+    <content type="html"><![CDATA[<p>@<a href="函数节流和函数防抖">TOC</a><br>今天在研究函数防抖和节流的过程中，发现这个方法已经把节流和防抖合二为一了，我很困惑，难道是我对节流和防抖的概念搞错了。</p><blockquote><p>函数节流：使连续执行的事件或函数，变为固定时间间隔执行。<br>函数防抖：使连续执行的事件或函数，在重复执行后只触发一次。</p></blockquote><p>  函数防抖：<code>_throttle(function(){console.log(110)},300,Infinity)</code><br>  不重复触发：300ms后执行一次；<br>  重复触发后：由于duration值给的是Infinity，所以内部一直在循坏，生成定时器，消除定时器，停止触发后，300ms后执行一次<br>  用途：搜索输入框|表单验证提示，防止用户输入连续发起请求。     </p><p>  函数节流：<code>_throttle(function(){console.log(110)},100,500)</code><br>  不重复触发：如果duration小于间隔的值，立即执行一次，否则100ms后执行；<br>  重复触发后：内部一直在循坏，生成定时器，消除定时器，每隔500ms后执行一次，停止触发后，100ms后再执行一次。    最后多执行的一次可以加个判断再改改。<br>  用途：scroll滚动事件等等;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/***</span></span><br><span class="line"><span class="comment">* descrition 函数节流</span></span><br><span class="line"><span class="comment">* @example  _throttle(function()&#123;console.log('Anles')&#125;,200,3000)</span></span><br><span class="line"><span class="comment">* @param &#123;Function&#125;  method 执行的方法</span></span><br><span class="line"><span class="comment">* @param &#123;Number&#125;    delay  间隔时间</span></span><br><span class="line"><span class="comment">* @patam &#123;Number&#125;    duration  保证多少时间内必须执行一次</span></span><br><span class="line"><span class="comment">***/</span></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">_throttle</span>(<span class="params">method,delay,duration</span>)</span>&#123;</span><br><span class="line">   <span class="keyword">var</span> timer = <span class="literal">null</span>;</span><br><span class="line">   <span class="keyword">var</span> startDate = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">   <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">     <span class="keyword">var</span> context = <span class="keyword">this</span>,args = <span class="built_in">arguments</span>,EndDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">     clearTimeout(timer);</span><br><span class="line">     <span class="keyword">if</span>(EndDate - startDate &gt;= duration)&#123;</span><br><span class="line">       method.apply(context,args);</span><br><span class="line">       startDate = EndDate;</span><br><span class="line">     &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">       timer = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">         method.apply(context,args)</span><br><span class="line">       &#125;,delay)</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;@&lt;a href=&quot;函数节流和函数防抖&quot;&gt;TOC&lt;/a&gt;&lt;br&gt;今天在研究函数防抖和节流的过程中，发现这个方法已经把节流和防抖合二为一了，我很困惑，难道是我对节流和防抖的概念搞错了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;函数节流：使连续执行的事件或函数，变为固定时间间隔
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>eslint规则大全</title>
@@ -169,9 +192,9 @@
       <category term="html5" scheme="https://122177638.github.io/MyBlog/categories/html5/"/>
     
     
-      <category term="html5" scheme="https://122177638.github.io/MyBlog/tags/html5/"/>
-    
       <category term="Javascript" scheme="https://122177638.github.io/MyBlog/tags/Javascript/"/>
+    
+      <category term="html5" scheme="https://122177638.github.io/MyBlog/tags/html5/"/>
     
   </entry>
   
@@ -196,9 +219,9 @@
       <category term="Javascript" scheme="https://122177638.github.io/MyBlog/categories/Javascript/"/>
     
     
-      <category term="html5" scheme="https://122177638.github.io/MyBlog/tags/html5/"/>
-    
       <category term="Javascript" scheme="https://122177638.github.io/MyBlog/tags/Javascript/"/>
+    
+      <category term="html5" scheme="https://122177638.github.io/MyBlog/tags/html5/"/>
     
   </entry>
   
@@ -223,9 +246,9 @@
       <category term="Javascript" scheme="https://122177638.github.io/MyBlog/categories/Javascript/"/>
     
     
-      <category term="html5" scheme="https://122177638.github.io/MyBlog/tags/html5/"/>
-    
       <category term="Javascript" scheme="https://122177638.github.io/MyBlog/tags/Javascript/"/>
+    
+      <category term="html5" scheme="https://122177638.github.io/MyBlog/tags/html5/"/>
     
   </entry>
   
